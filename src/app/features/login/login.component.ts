@@ -28,13 +28,12 @@ export class LoginComponent implements OnInit {
    }
 
   onSubmit() {
-    this.authService.login('admin@dealwish', 'admin')
-    .subscribe(
-        () => {
-            console.log("User is logged in");
+    this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
+    .subscribe( (response) => {
+            console.log(response);
             this.router.navigateByUrl('/');
         }
     );
   }
-
+  
 }
