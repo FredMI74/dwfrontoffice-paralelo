@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
         email: new FormControl(''),
         password: new FormControl(''),
       });
-      
      }
 
   ngOnInit() : void {
@@ -28,7 +27,10 @@ export class LoginComponent implements OnInit {
    }
 
   onSubmit() {
-    this.authService.login(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
+    console.log(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value)
+    this.authService.login(
+        this.loginForm.get('email')?.value, 
+        this.loginForm.get('password')?.value)
     .subscribe( (response) => {
             console.log(response);
             this.router.navigateByUrl('/');
